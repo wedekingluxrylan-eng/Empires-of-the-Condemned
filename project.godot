@@ -11,5 +11,10 @@ config_version=5
 [application]
 
 config/name="Empires of the Condemned"
+run/main_scene="uid://6b7d58l2ei5r"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
