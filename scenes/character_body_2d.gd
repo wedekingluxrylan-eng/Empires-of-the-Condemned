@@ -3,6 +3,10 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 const SPEED = 200.0
+<<<<<<< Updated upstream
+=======
+@onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
+>>>>>>> Stashed changes
 
 
 func _physics_process(delta: float) -> void:

@@ -1,13 +1,27 @@
+<<<<<<< Updated upstream
 [gd_scene format=3 uid="uid://6b7d58l2ei5r"]
 
 [ext_resource type="Texture2D" uid="uid://cswytygrw4a6u" path="res://Scenes/pixil-frame-0 (2).png" id="2_kln2b"]
 [ext_resource type="Script" uid="uid://bjpk7keghgcxq" path="res://Scenes/character_body_2d.gd" id="2_rgh2o"]
 [ext_resource type="Texture2D" uid="uid://bs8dlb3qvp8g8" path="res://Assets/pixil-frame-0 (2).png" id="3_pbw6q"]
+=======
+[gd_scene format=3 uid="uid://bemyrvtpvrwjf"]
+
+[ext_resource type="Texture2D" uid="uid://bai307kcvs8bn" path="res://Scenes/pixil-frame-0 (2).png" id="2_kln2b"]
+[ext_resource type="Script" uid="uid://bjpk7keghgcxq" path="res://Scenes/character_body_2d.gd" id="2_rgh2o"]
+[ext_resource type="Texture2D" uid="uid://dwp2ji7e6vp7a" path="res://Assets/pixil-frame-0 (4).png" id="3_8gbba"]
+>>>>>>> Stashed changes
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rgh2o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbw6q"]
-size = Vector2(418, 20)
+size = Vector2(1084.25, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4ibi"]
+size = Vector2(0.64000034, 7.0699997)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bnr6"]
+size = Vector2(52.5, 703)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1gob"]
 size = Vector2(11, 21)
@@ -56,9 +70,10 @@ physics_material_override = SubResource("PhysicsMaterial_rgh2o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1347947826]
 top_level = true
-position = Vector2(3, 18)
+position = Vector2(25.5, 230.5)
 shape = SubResource("RectangleShape2D_pbw6q")
 
+<<<<<<< Updated upstream
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1171129717]
 position = Vector2(3.0000002, 21)
 scale = Vector2(0.24, 0.25)
@@ -73,10 +88,38 @@ texture = ExtResource("2_kln2b")
 stretch_mode = 1
 
 [node name="testchar" type="CharacterBody2D" parent="." unique_id=1556584442]
+=======
+[node name="TextureRect" type="TextureRect" parent="StaticBody2D" unique_id=284157721]
+z_index = -1
+offset_left = 726.0
+offset_top = -279.0
+offset_right = 1144.0
+offset_bottom = -179.0
+texture = ExtResource("2_kln2b")
+stretch_mode = 1
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2054777069]
+top_level = true
+position = Vector2(23, -382)
+shape = SubResource("RectangleShape2D_pbw6q")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1401825204]
+z_index = 4
+position = Vector2(536, -68.499985)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_d4ibi")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=691382566]
+position = Vector2(-508.75, -75.5)
+shape = SubResource("RectangleShape2D_3bnr6")
+
+[node name="testchar" type="CharacterBody2D" parent="." unique_id=23913345]
+>>>>>>> Stashed changes
 script = ExtResource("2_rgh2o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="testchar" unique_id=1827047340]
 top_level = true
+<<<<<<< Updated upstream
 position = Vector2(1.5, -5.5)
 shape = SubResource("RectangleShape2D_v1gob")
 
@@ -94,3 +137,27 @@ vframes = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1746826263]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_pbw6q")
+=======
+position = Vector2(8, -6)
+shape = SubResource("RectangleShape2D_v1gob")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="testchar" unique_id=1531757984]
+unique_name_in_owner = true
+position = Vector2(9, -8)
+scale = Vector2(1, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_jw32o")
+animation = &"WalkRight"
+autoplay = "Idle"
+offset = Vector2(-1.35, 3.47)
+
+[node name="Camera2D" type="Camera2D" parent="testchar" unique_id=158906499]
+zoom = Vector2(2.05, 2.05)
+position_smoothing_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1890531150]
+z_index = -1
+offset_left = -520.0
+offset_top = -376.0
+offset_right = 538.0
+offset_bottom = 241.0
+>>>>>>> Stashed changes

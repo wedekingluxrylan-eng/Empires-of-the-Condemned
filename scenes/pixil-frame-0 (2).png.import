@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://cswytygrw4a6u"
+=======
+uid="uid://bai307kcvs8bn"
+>>>>>>> Stashed changes
 path="res://.godot/imported/pixil-frame-0 (2).png-ba3e18615f50845b181a8115cf15e99d.ctex"
 metadata={
 "vram_texture": false
