@@ -2,24 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-uid="uid://cswytygrw4a6u"
-=======
-uid="uid://bai307kcvs8bn"
->>>>>>> Stashed changes
-=======
-uid="uid://cswytygrw4a6u"
->>>>>>> b5e548f923481e28584e64cb6915477a64c931aa
-path="res://.godot/imported/pixil-frame-0 (2).png-ba3e18615f50845b181a8115cf15e99d.ctex"
+uid="uid://8a8js0byxuri"
+path="res://.godot/imported/Soldier.png-df8ce7c3aef599e55e465baf8a8fb940.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/pixil-frame-0 (2).png"
-dest_files=["res://.godot/imported/pixil-frame-0 (2).png-ba3e18615f50845b181a8115cf15e99d.ctex"]
+source_file="res://assets/Soldier.png"
+dest_files=["res://.godot/imported/Soldier.png-df8ce7c3aef599e55e465baf8a8fb940.ctex"]
 
 [params]
 
