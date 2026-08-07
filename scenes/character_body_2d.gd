@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
-const SPEED = 300.0
-@onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
+const SPEED = 200.0
 
 
 func _physics_process(delta: float) -> void:
@@ -11,19 +11,12 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Get the input direction and handle the movement/deceleration.
-	var horizontaldirection := Input.get_axis("Left", "Right")
-	var verticaldirection := Input.get_axis("Up", "Down")
-	if horizontaldirection:
-		velocity.x = horizontaldirection * SPEED
-		animated_sprite_2d.play("WalkLeft")
-		
+	var direction := Input.get_axis("Left", "Right")
+	if direction:
+		velocity.x = direction * SPEED
+		animation_player.play("player_walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		animated_sprite_2d.play("Idle")
-	if verticaldirection:
-		velocity.y = verticaldirection * SPEED
-	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
-
+		animation_player.play("RESET")
 
 	move_and_slide()
