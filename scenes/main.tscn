@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://brtkjqeecilx3"]
 
 [ext_resource type="Texture2D" uid="uid://8a8js0byxuri" path="res://Assets/Soldier.png" id="1_jjgbg"]
+[ext_resource type="Texture2D" uid="uid://dqm63swk4m077" path="res://Assets/02aa0790086f91a.webp" id="2_bo1nx"]
 
 [sub_resource type="GDScript" id="GDScript_d4ibi"]
 script/source = "extends CharacterBody2D
@@ -213,7 +214,11 @@ scale = Vector2(0.62499994, 0.62499994)
 shape = SubResource("RectangleShape2D_58tg6")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=361712057]
-offset_left = -1283.0
-offset_top = -945.0
-offset_right = -853.0
-offset_bottom = -469.0
+z_index = -1
+offset_left = -901.0
+offset_top = -604.0
+offset_right = 1007.0
+offset_bottom = 675.0
+texture = ExtResource("2_bo1nx")
+expand_mode = 1
+stretch_mode = 1
