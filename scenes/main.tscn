@@ -1,195 +1,213 @@
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
->>>>>>> b5e548f923481e28584e64cb6915477a64c931aa
-[gd_scene format=3 uid="uid://6b7d58l2ei5r"]
+[gd_scene format=3 uid="uid://brtkjqeecilx3"]
 
-[ext_resource type="Texture2D" uid="uid://cswytygrw4a6u" path="res://Scenes/pixil-frame-0 (2).png" id="2_kln2b"]
-[ext_resource type="Script" uid="uid://bjpk7keghgcxq" path="res://Scenes/character_body_2d.gd" id="2_rgh2o"]
-[ext_resource type="Texture2D" uid="uid://bs8dlb3qvp8g8" path="res://Assets/pixil-frame-0 (2).png" id="3_pbw6q"]
-<<<<<<< HEAD
-=======
-[gd_scene format=3 uid="uid://bemyrvtpvrwjf"]
+[ext_resource type="Texture2D" uid="uid://8a8js0byxuri" path="res://Assets/Soldier.png" id="1_jjgbg"]
 
-[ext_resource type="Texture2D" uid="uid://bai307kcvs8bn" path="res://Scenes/pixil-frame-0 (2).png" id="2_kln2b"]
-[ext_resource type="Script" uid="uid://bjpk7keghgcxq" path="res://Scenes/character_body_2d.gd" id="2_rgh2o"]
-[ext_resource type="Texture2D" uid="uid://dwp2ji7e6vp7a" path="res://Assets/pixil-frame-0 (4).png" id="3_8gbba"]
->>>>>>> Stashed changes
-=======
->>>>>>> b5e548f923481e28584e64cb6915477a64c931aa
+[sub_resource type="GDScript" id="GDScript_d4ibi"]
+script/source = "extends CharacterBody2D
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rgh2o"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbw6q"]
-size = Vector2(1084.25, 88)
+const SPEED = 300.0
+@onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
+
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	if %AnimatedSprite2D.animation != \"Idle\":
+		%AnimatedSprite2D.play(\"Idle\")
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var horizontaldirection := Input.get_axis(\"Left\", \"Right\")
+	if horizontaldirection:
+		animated_sprite_2d.play(\"Walk\")
+		velocity.x = horizontaldirection * SPEED
+	else:
+		animated_sprite_2d.play(\"Idle\")
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+
+	var verticaldirection := Input.get_axis(\"Up\", \"Down\")
+	if verticaldirection:
+		velocity.y = verticaldirection * SPEED
+		animated_sprite_2d.play(\"Walk\")
+	else:
+		velocity.y = move_toward(velocity.y, 0, SPEED)
+		animated_sprite_2d.play(\"Idle\")
+	move_and_slide()
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4ibi"]
-size = Vector2(0.64000034, 7.0699997)
+size = Vector2(11, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bo1nx"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gbba"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjvhh"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kry3j"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21xkr"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bp64"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjgbg"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_344ge"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynf5e"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hptm8"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(300, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1ilt"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(400, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iyac"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(500, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdnlq"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(600, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkdf5"]
+atlas = ExtResource("1_jjgbg")
+region = Rect2(700, 100, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d4ibi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bo1nx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gbba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjvhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kry3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21xkr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bp64")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjgbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_344ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynf5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hptm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1ilt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6iyac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdnlq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkdf5")
+}],
+"loop": 1,
+"name": &"Walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bnr6"]
-size = Vector2(52.5, 703)
+size = Vector2(1864, 44)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1gob"]
-size = Vector2(11, 21)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58tg6"]
+size = Vector2(101, 1251)
 
-[sub_resource type="Animation" id="Animation_kln2b"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("testchar/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
+[node name="main" type="Node2D" unique_id=178903466]
 
-[sub_resource type="Animation" id="Animation_rgh2o"]
-resource_name = "player_walk"
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("testchar/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.9916667),
-"transitions": PackedFloat32Array(1, 0.68301815, 1),
-"update": 1,
-"values": [0, 1, 0]
-}
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=740969144]
+script = SubResource("GDScript_d4ibi")
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pbw6q"]
-_data = {
-&"RESET": SubResource("Animation_kln2b"),
-&"player_walk": SubResource("Animation_rgh2o")
-}
-
-[node name="Main" type="Node2D" unique_id=649202619]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1443062337]
-physics_material_override = SubResource("PhysicsMaterial_rgh2o")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1347947826]
-top_level = true
-position = Vector2(25.5, 230.5)
-shape = SubResource("RectangleShape2D_pbw6q")
-
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
->>>>>>> b5e548f923481e28584e64cb6915477a64c931aa
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1171129717]
-position = Vector2(3.0000002, 21)
-scale = Vector2(0.24, 0.25)
-texture = ExtResource("2_kln2b")
-
-[node name="TextureRect" type="TextureRect" parent="StaticBody2D" unique_id=1273502946]
-offset_left = -206.0
-offset_top = 8.0
-offset_right = 212.0
-offset_bottom = 33.0
-texture = ExtResource("2_kln2b")
-stretch_mode = 1
-
-[node name="testchar" type="CharacterBody2D" parent="." unique_id=1556584442]
-<<<<<<< HEAD
-=======
-[node name="TextureRect" type="TextureRect" parent="StaticBody2D" unique_id=284157721]
-z_index = -1
-offset_left = 726.0
-offset_top = -279.0
-offset_right = 1144.0
-offset_bottom = -179.0
-texture = ExtResource("2_kln2b")
-stretch_mode = 1
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2054777069]
-top_level = true
-position = Vector2(23, -382)
-shape = SubResource("RectangleShape2D_pbw6q")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1401825204]
-z_index = 4
-position = Vector2(536, -68.499985)
-scale = Vector2(100, 100)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1884650972]
+z_index = 1
+position = Vector2(0.5, 4)
 shape = SubResource("RectangleShape2D_d4ibi")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=691382566]
-position = Vector2(-508.75, -75.5)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1176690243]
+unique_name_in_owner = true
+position = Vector2(-1.9073486e-06, -1.0000019)
+scale = Vector2(1.6, 1.6)
+sprite_frames = SubResource("SpriteFrames_d4ibi")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1437821421]
+zoom = Vector2(2, 2)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=523829821]
+z_index = -1
+offset_left = -893.0
+offset_top = -616.0
+offset_right = 965.0
+offset_bottom = 653.0
+color = Color(0.29938522, 0.7052574, 3.85046e-07, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1890970330]
+position = Vector2(-1.9073486e-06, -1.0000019)
+scale = Vector2(1.6, 1.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=183308445]
+position = Vector2(26.25, 401.87497)
+scale = Vector2(0.62499994, 0.62499994)
 shape = SubResource("RectangleShape2D_3bnr6")
 
-[node name="testchar" type="CharacterBody2D" parent="." unique_id=23913345]
->>>>>>> Stashed changes
-=======
->>>>>>> b5e548f923481e28584e64cb6915477a64c931aa
-script = ExtResource("2_rgh2o")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=441522229]
+position = Vector2(23.75, -374.99997)
+scale = Vector2(0.62499994, 0.62499994)
+shape = SubResource("RectangleShape2D_3bnr6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="testchar" unique_id=1827047340]
-top_level = true
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-position = Vector2(1.5, -5.5)
-shape = SubResource("RectangleShape2D_v1gob")
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1940139309]
+position = Vector2(585.31244, 15.937499)
+scale = Vector2(0.62499994, 0.62499994)
+shape = SubResource("RectangleShape2D_58tg6")
 
-[node name="Camera2D" type="Camera2D" parent="testchar" unique_id=1292291744]
-position_smoothing_enabled = true
-
-[node name="Sprite2D" type="Sprite2D" parent="testchar" unique_id=726289663]
-position = Vector2(1, -1.9999998)
-scale = Vector2(0.95, 0.90000004)
-texture = ExtResource("3_pbw6q")
-offset = Vector2(-1, 0)
-hframes = 5
-vframes = 2
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1746826263]
-unique_name_in_owner = true
-libraries/ = SubResource("AnimationLibrary_pbw6q")
-=======
-position = Vector2(8, -6)
-shape = SubResource("RectangleShape2D_v1gob")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="testchar" unique_id=1531757984]
-unique_name_in_owner = true
-position = Vector2(9, -8)
-scale = Vector2(1, 0.99999994)
-sprite_frames = SubResource("SpriteFrames_jw32o")
-animation = &"WalkRight"
-autoplay = "Idle"
-offset = Vector2(-1.35, 3.47)
-
-[node name="Camera2D" type="Camera2D" parent="testchar" unique_id=158906499]
-zoom = Vector2(2.05, 2.05)
-position_smoothing_enabled = true
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1890531150]
-z_index = -1
-offset_left = -520.0
-offset_top = -376.0
-offset_right = 538.0
-offset_bottom = 241.0
->>>>>>> Stashed changes
-=======
-position = Vector2(1.5, -5.5)
-shape = SubResource("RectangleShape2D_v1gob")
-
-[node name="Camera2D" type="Camera2D" parent="testchar" unique_id=1292291744]
-position_smoothing_enabled = true
-
-[node name="Sprite2D" type="Sprite2D" parent="testchar" unique_id=726289663]
-position = Vector2(1, -1.9999998)
-scale = Vector2(0.95, 0.90000004)
-texture = ExtResource("3_pbw6q")
-offset = Vector2(-1, 0)
-hframes = 5
-vframes = 2
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1746826263]
-unique_name_in_owner = true
-libraries/ = SubResource("AnimationLibrary_pbw6q")
->>>>>>> b5e548f923481e28584e64cb6915477a64c931aa
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1390439865]
+position = Vector2(-524.99994, 24.375)
+scale = Vector2(0.62499994, 0.62499994)
+shape = SubResource("RectangleShape2D_58tg6")
