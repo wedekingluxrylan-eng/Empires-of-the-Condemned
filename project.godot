@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Empires of the Condemned Beta"
-run/main_scene="res://Scenes/main.tscn"
+run/main_scene="uid://6b7d58l2ei5r"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
