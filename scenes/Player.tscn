@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://b1hy16wj204sl"]
+
+[ext_resource type="Script" uid="uid://cd5ob0rs8bgg8" path="res://Scripts/testchar.gd" id="1_kyqiw"]
+[ext_resource type="Texture2D" path="res://Assets/pixil-frame-0 (2).png" id="2_gntrk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dewec"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ixxa"]
+atlas = ExtResource("2_gntrk")
+region = Rect2(0, 5, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn08x"]
+atlas = ExtResource("2_gntrk")
+region = Rect2(22, 5, 22, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_52ee3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ixxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nn08x")
+}],
+"loop": 1,
+"name": &"Broitsacube",
+"speed": 5.0
+}]
+
+[node name="Player" type="Node2D" unique_id=543327918]
+
+[node name="testchar" type="CharacterBody2D" parent="." unique_id=6213483]
+script = ExtResource("1_kyqiw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="testchar" unique_id=617396665]
+top_level = true
+position = Vector2(2, 0)
+shape = SubResource("CircleShape2D_dewec")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="testchar" unique_id=209823384]
+position = Vector2(3, -7)
+sprite_frames = SubResource("SpriteFrames_52ee3")
+animation = &"Broitsacube"
+frame = 1
+frame_progress = 0.49682197
